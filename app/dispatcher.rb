@@ -1,4 +1,4 @@
-require 'JSON'
+require 'json'
 require ::File.expand_path('../hook_processor.rb', __FILE__)
 
 module GithubWebHook
