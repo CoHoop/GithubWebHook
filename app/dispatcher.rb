@@ -6,7 +6,7 @@ module GithubWebHook
   class Dispatcher
     class << self
       def initialize(request)
-        begin
+#        begin
           HookLogger.log(request.body.read)
           # The received Json is actually set into the body, not in request.POST
           json = JSON::parse(request.body.read)
@@ -16,12 +16,12 @@ module GithubWebHook
             status: 200,
             body:   'OK'
           }
-        rescue
-          return  {
-            status: 500,
-            body:   'Wrong Content-type sent'
-          }
-        end
+ #       rescue
+#          return  {
+#            status: 500,
+#            body:   'Wrong Content-type sent'
+#          }
+#        end
       end
     end
   end
