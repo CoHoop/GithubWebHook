@@ -1,3 +1,5 @@
+require ::File.expand_path('../logger.rb', __FILE__)
+
 module GithubWebHook
   class HookProcessor
     def initialize(data)
@@ -5,8 +7,7 @@ module GithubWebHook
     end
 
     def run
-      require 'awesome_print'
-      ap @data
+      Logger.log(@data)
     end
   end
 end
