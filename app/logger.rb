@@ -1,7 +1,7 @@
 require 'logger'
 
 module Logger
-  logger ||= Logger.new(File.expand_path('../log/production.rb', __FILE__))
+  logger ||= Logger.new(File.expand_path('../log/application.rb', __FILE__))
   logger.level = Logger::WARN
 
   def log string
