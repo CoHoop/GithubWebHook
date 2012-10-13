@@ -1,6 +1,6 @@
 require 'logger'
 
-module Logger
+module HookLogger
   logger ||= Logger.new(File.expand_path('../log/application.rb', __FILE__))
   logger.level = Logger::WARN
 

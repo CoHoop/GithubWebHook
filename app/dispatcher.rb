@@ -7,7 +7,7 @@ module GithubWebHook
     class << self
       def initialize(request)
         begin
-          Logger.log(request.body.read)
+          HookLogger.log(request.body.read)
           # The received Json is actually set into the body, not in request.POST
           json = JSON::parse(request.body.read)
           hook_processor = GithubWebHook::HookProcessor.new(json)
