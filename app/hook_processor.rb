@@ -7,6 +7,7 @@ module GithubWebHook
     end
 
     def run
+      HookLogger.log('Hook running...');
       HookLogger.log(@data)
     end
   end

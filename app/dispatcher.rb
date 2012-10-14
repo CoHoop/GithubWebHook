@@ -14,14 +14,17 @@ module GithubWebHook
           json = JSON::parse(data)
           hook_processor = GithubWebHook::HookProcessor.new(json)
           hook_processor.run
-          return {
-            status: 200,
-            body:   'OK'
-          }
+
+          status = 200
+          body   = 'OK'
         rescue
+          status = 500
+          body   = 'Wrong Content-type sent'
+        ensure
+          HookLogger::log(body)
           return  {
-            status: 500,
-            body:   'Wrong Content-type sent'
+            status: status,
+            body:   body
           }
         end
       end
